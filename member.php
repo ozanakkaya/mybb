@@ -1529,6 +1529,12 @@ if($mybb->input['action'] == "do_resendactivation" && $mybb->request_method == "
 				{
 					$user['code'] = random_str();
 					$uid = $user['uid'];
+					
+					if(!$user['type']) 
+					{
+						$user['type'] = "r";
+					}
+					
 					$awaitingarray = array(
 						"uid" => $uid,
 						"dateline" => TIME_NOW,
